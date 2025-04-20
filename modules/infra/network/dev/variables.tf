@@ -50,3 +50,7 @@ variable "db_subnets" {
 variable "dmz_tgw_id" {
   type = string
 }
+
+variable "shd_tgw_id" {
+  type = string
+}

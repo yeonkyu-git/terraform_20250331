@@ -18,6 +18,11 @@ resource "aws_route_table" "PRB-RT" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
+  route {
+    cidr_block = "10.35.77.0/24"
+    gateway_id = var.shd_tgw_id
+  }
+
   tags = {
     Name       = "RT-AN2-${var.env_name}-PRB"
     Managed_by = "terraform"
@@ -39,16 +44,10 @@ resource "aws_route_table_association" "PRB-AC-2" {
 resource "aws_route_table" "PRV-RT" {
   vpc_id = aws_vpc.shd-vpc.id
 
-  route {
-    cidr_block = "10.35.77.0/24"
-    gateway_id = var.shd_tgw_id
-  }
-
   tags = {
     Name       = "RT-AN2-${var.env_name}-PRV"
     Managed_by = "terraform"
   }
-
 }
 
 resource "aws_route_table_association" "PRV-AC-1" {

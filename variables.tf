@@ -81,3 +81,23 @@ variable "shd_network" {
 # variable "tgw_network" {
 
 # }
+
+
+# [SHD Instance] -----------------------------------
+variable "shd_instance" {
+  type = object({
+    keypair_name  = string
+    instance_type = string
+    access_ip     = list(string)
+  })
+}
+
+# [DEV Instance] -----------------------------------
+variable "dev_instance" {
+  type = object({
+    keypair_name  = string
+    instance_type = string
+  })
+}
+
+

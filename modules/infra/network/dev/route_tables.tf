@@ -39,6 +39,11 @@ resource "aws_route_table" "AP-RT" {
     gateway_id = var.dmz_tgw_id
   }
 
+  route {
+    cidr_block = "10.35.78.0/25"
+    gateway_id = var.shd_tgw_id
+  }
+
   tags = {
     Name       = "RT-AN2-${var.env_name}-AP"
     Managed_by = "terraform"
